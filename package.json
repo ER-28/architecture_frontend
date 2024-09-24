@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cookies-next": "^4.2.1",
     "inversify": "^6.0.2",
     "mobx": "^6.13.2",
     "mobx-react-lite": "^4.0.7",
