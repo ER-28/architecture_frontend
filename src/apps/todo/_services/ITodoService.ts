@@ -1,4 +1,4 @@
-import {TodoItemModel} from "../_models/TodoItem.ts";
+import { TodoItemModel } from "../_models/TodoItem.ts";
 
 export interface ITodoService {
   getTodos(): TodoItemModel[];

@@ -1,12 +1,12 @@
-import {inject, injectable} from "inversify";
-import {makeAutoObservable} from "mobx";
-import {ITodoService} from "../_services/ITodoService.ts";
-import {TODO_TYPES} from "../types.ts";
+import { inject, injectable } from "inversify";
+import { makeAutoObservable } from "mobx";
+import { ITodoService } from "../_services/ITodoService.ts";
+import { TODO_TYPES } from "../types.ts";
 
 @injectable()
 export class TodoViewModel {
   constructor(
-    @inject(TODO_TYPES.ITodoService) private todoService: ITodoService
+    @inject(TODO_TYPES.ITodoService) private todoService: ITodoService,
   ) {
     makeAutoObservable(this);
   }

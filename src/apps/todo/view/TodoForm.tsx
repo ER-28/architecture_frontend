@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import {TodoViewModel} from "../viewmodels/TodoViewModel.ts";
+import React, { useState } from "react";
+import { TodoViewModel } from "../viewmodels/TodoViewModel.ts";
 
 interface TodoFormProps {
   viewModel: TodoViewModel;
 }
 
 export const TodoForm: React.FC<TodoFormProps> = ({ viewModel }) => {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (title.trim()) {
       viewModel.addTodo(title.trim());
-      setTitle('');
+      setTitle("");
     }
   };
 
