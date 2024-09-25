@@ -8,8 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "prettier .",
-    "format": "prettier --write ."
+    "test": "prettier --check . --ignore-path .gitignore && eslint --report-unused-disable-directives --max-warnings 0 && tsc --noEmit",
+    "format": "prettier --write .",
+    "types": "tsc --noEmit"
   },
   "dependencies": {
     "@types/node": "^22.7.0",
