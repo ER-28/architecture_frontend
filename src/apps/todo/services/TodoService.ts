@@ -1,7 +1,7 @@
 import { injectable } from "inversify";
 import { makeAutoObservable } from "mobx";
 import { ITodoService } from "./ITodoService";
-import { TodoItemModel, TodoItemSchema } from "../_models/TodoItem.ts";
+import { TodoItemModel, TodoItemSchema } from "../models/TodoItem.ts";
 
 @injectable()
 export class TodoService implements ITodoService {
