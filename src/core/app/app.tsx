@@ -6,7 +6,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-function App({ routes }: { routes: RouteObject[] }) {
+interface AppProps {
+  routes: RouteObject[];
+  authRoutes: RouteObject[];
+}
+
+function App({ routes, authRoutes }: AppProps) {
+  return <RouterProvider router={createBrowserRouter(authRoutes)} />;
+
   return <RouterProvider router={createBrowserRouter(routes)} />;
 }
 

@@ -1,9 +1,8 @@
-import TodoRoute from "./routes/todo.tsx";
 import { RouteObject } from "react-router-dom";
 
 export const routes: RouteObject[] = [
   {
     path: "/",
-    element: <TodoRoute />,
+    element: <p>test</p>,
   },
 ];
