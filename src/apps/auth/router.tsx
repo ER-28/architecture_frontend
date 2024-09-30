@@ -1,13 +1,13 @@
-import { RouteObject } from "react-router-dom";
+import type { RouteObject } from "react-router-dom";
 
 const routes: RouteObject[] = [
-  {
-    path: "/",
-    element: <p>test</p>,
-  },
+	{
+		path: "/",
+		element: <p>test</p>,
+	},
 ];
 
 export default {
-  routes,
-  defaultUrl: "/",
-}
+	routes,
+	defaultUrl: "/",
+};

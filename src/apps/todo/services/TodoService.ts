@@ -1,40 +1,40 @@
 import { injectable } from "inversify";
 import { makeAutoObservable } from "mobx";
-import { ITodoService } from "./ITodoService";
-import { TodoItemModel, TodoItemSchema } from "../models/TodoItem.ts";
-import {createUser} from "../../../api/user.ts";
+import { createUser } from "../../../api/user.ts";
+import { type TodoItemModel, TodoItemSchema } from "../models/TodoItem.ts";
+import type { ITodoService } from "./ITodoService";
 
 @injectable()
 export class TodoService implements ITodoService {
-  private todos: TodoItemModel[] = [];
+	private todos: TodoItemModel[] = [];
 
-  constructor() {
-    makeAutoObservable(this);
-  }
+	constructor() {
+		makeAutoObservable(this);
+	}
 
-  getTodos() {
-    return this.todos;
-  }
+	getTodos() {
+		return this.todos;
+	}
 
-  addTodo(title: string) {
-    const newTodo = TodoItemSchema.parse({
-      id: Date.now().toString(),
-      title,
-      completed: false,
-    });
-    const newuser = createUser({name: title, id: 5});
-    console.log(newuser)
-    this.todos.push(newTodo);
-  }
+	addTodo(title: string) {
+		const newTodo = TodoItemSchema.parse({
+			id: Date.now().toString(),
+			title,
+			completed: false,
+		});
+		const newuser = createUser({ name: title, id: 5 });
+		console.log(newuser);
+		this.todos.push(newTodo);
+	}
 
-  toggleTodo(id: string) {
-    const todo = this.todos.find((t) => t.id === id);
-    if (todo) {
-      todo.completed = !todo.completed;
-    }
-  }
+	toggleTodo(id: string) {
+		const todo = this.todos.find((t) => t.id === id);
+		if (todo) {
+			todo.completed = !todo.completed;
+		}
+	}
 
-  removeTodo(id: string) {
-    this.todos = this.todos.filter((t) => t.id !== id);
-  }
+	removeTodo(id: string) {
+		this.todos = this.todos.filter((t) => t.id !== id);
+	}
 }
