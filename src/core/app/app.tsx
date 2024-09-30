@@ -20,9 +20,6 @@ function App({ mainRouter, authRouter }: AppProps) {
 
     const selectedRouter = hasToken ? mainRouter : authRouter;
 
-    console.log(selectedRouter)
-    console.log(authRouter)
-
     const routes = [
       ...selectedRouter.routes,
       {
