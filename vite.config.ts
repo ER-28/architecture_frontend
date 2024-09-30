@@ -6,6 +6,7 @@ import viteBundleObfuscator from "vite-plugin-bundle-obfuscator";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 import { VitePWA } from "vite-plugin-pwa";
 import { robots } from "vite-plugin-robots";
+import biomePlugin from "vite-plugin-biome";
 
 const obfuscatorConfig = {
 	enable: true,
@@ -24,5 +25,12 @@ export default defineConfig(() => ({
 		robots(),
 		viteBundleObfuscator(obfuscatorConfig),
 		TurboConsole(),
+		biomePlugin({
+			mode: 'check',
+			files: './src',
+		})
 	],
+	server: {
+		host: true
+	}
 }));
