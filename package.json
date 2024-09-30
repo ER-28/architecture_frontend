@@ -13,7 +13,9 @@
     "types": "tsc --noEmit"
   },
   "dependencies": {
+    "@tanstack/query-core": "^5.56.2",
     "@types/node": "^22.7.0",
+    "axios": "^1.7.7",
     "husky": "^9.1.6",
     "inversify": "^6.0.2",
     "mobx": "^6.13.2",

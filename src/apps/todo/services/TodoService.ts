@@ -2,6 +2,7 @@ import { injectable } from "inversify";
 import { makeAutoObservable } from "mobx";
 import { ITodoService } from "./ITodoService";
 import { TodoItemModel, TodoItemSchema } from "../models/TodoItem.ts";
+import {createUser} from "../../../api/user.ts";
 
 @injectable()
 export class TodoService implements ITodoService {
@@ -21,6 +22,8 @@ export class TodoService implements ITodoService {
       title,
       completed: false,
     });
+    const newuser = createUser({name: title, id: 5});
+    console.log(newuser)
     this.todos.push(newTodo);
   }
 
