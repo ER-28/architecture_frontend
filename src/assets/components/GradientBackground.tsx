@@ -13,7 +13,9 @@ const GradientBackground: React.FC<GradientBackgroundProps> = ({
 	endColor,
 	children,
 }) => {
-	const replacedSvg = backgroundSvg.replace(/#C22D2A/g, startColor).replace(/#F5D50E/g, endColor)
+	const replacedSvg = backgroundSvg
+		.replace(/#C22D2A/g, startColor)
+		.replace(/#F5D50E/g, endColor);
 
 	return (
 		<div
