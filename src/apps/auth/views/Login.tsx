@@ -16,9 +16,9 @@ const LoginView: React.FC<LoginViewProps> = observer(({ viewModel }) => {
 	return (
 		<GradientBackground startColor="#190bdb" endColor="#c2158b">
 			<div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative">
-				<div className="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-md relative z-10">
+				<div className="max-w-md w-full space-y-8 bg-white dark:bg-gray-800 p-10 rounded-xl shadow-md relative z-10">
 					<div>
-						<h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+						<h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
 							Sign in to your account
 						</h2>
 					</div>
