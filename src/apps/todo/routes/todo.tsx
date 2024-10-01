@@ -1,12 +1,10 @@
-import { TodoContainer } from "../todo.config.ts";
-import { TODO_TYPES } from "../types.ts";
-import { TodoList } from "../view/TodoList.tsx";
+import { useInjection } from "inversify-react";
+import Types from "../types.ts";
 import type { TodoViewModel } from "../viewmodels/TodoViewModel.ts";
+import { TodoList } from "../views/TodoList.tsx";
 
 function TodoRoute() {
-	const todoViewModel = TodoContainer.get<TodoViewModel>(
-		TODO_TYPES.TodoViewModel,
-	);
+	const todoViewModel = useInjection<TodoViewModel>(Types.TodoViewModel);
 
 	return (
 		<div className="min-h-screen bg-gray-100 flex items-center justify-center">

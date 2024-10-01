@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import "./index.css";
+import { useInjection } from "inversify-react";
 import {
 	Navigate,
 	RouterProvider,
 	createBrowserRouter,
 } from "react-router-dom";
+import Types from "../../apps/toast/types.ts";
+import type { ToastViewModel } from "../../apps/toast/viewmodels/ToastViewModel.ts";
+import ToastManager from "../../apps/toast/views/ToastManager.tsx";
 import type { Router } from "../routing/bootstrapping.ts";
 
 interface AppProps {
@@ -16,6 +20,7 @@ function App({ mainRouter, authRouter }: AppProps) {
 	const [router, setRouter] = useState<ReturnType<
 		typeof createBrowserRouter
 	> | null>(null);
+	const toastViewModel = useInjection<ToastViewModel>(Types.ToastViewModel);
 
 	useEffect(() => {
 		const hasToken = document.cookie
@@ -40,7 +45,12 @@ function App({ mainRouter, authRouter }: AppProps) {
 		return null;
 	}
 
-	return <RouterProvider router={router} />;
+	return (
+		<div>
+			<ToastManager viewModel={toastViewModel} />
+			<RouterProvider router={router} />
+		</div>
+	);
 }
 
 export default App;

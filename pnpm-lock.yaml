@@ -17,6 +17,9 @@ importers:
       '@types/node':
         specifier: ^22.7.0
         version: 22.7.0
+      '@types/uuid':
+        specifier: ^10.0.0
+        version: 10.0.0
       axios:
         specifier: ^1.7.7
         version: 1.7.7
@@ -26,6 +29,12 @@ importers:
       inversify:
         specifier: ^6.0.2
         version: 6.0.2
+      inversify-react:
+        specifier: ^1.1.1
+        version: 1.1.1(inversify@6.0.2)(react@18.3.1)
+      lucide-react:
+        specifier: ^0.446.0
+        version: 0.446.0(react@18.3.1)
       mobx:
         specifier: ^6.13.2
         version: 6.13.2
@@ -50,6 +59,9 @@ importers:
       svgo:
         specifier: ^3.3.2
         version: 3.3.2
+      uuid:
+        specifier: ^10.0.0
+        version: 10.0.0
       vite-plugin-biome:
         specifier: ^1.0.12
         version: 1.0.12(@biomejs/biome@1.9.2)
@@ -1274,6 +1286,9 @@ packages:
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
 
+  '@types/uuid@10.0.0':
+    resolution: {integrity: sha512-7gqG38EyHgyP1S+7+xomFtL+ZNHcKv6DwNaCZmJmo1vgMugyF3TCnXVg4t1uk89mLNwnLtnY3TpOpCOyp1/xHQ==}
+
   '@types/validator@13.12.2':
     resolution: {integrity: sha512-6SlHBzUW8Jhf3liqrGGXyTJSIFe4nqlJ5A5KaMZ2l/vbM3Wh3KSybots/wfWVzNLK4D1NZluDlSQIbIEPx6oyA==}
 
@@ -1991,6 +2006,12 @@ packages:
     resolution: {integrity: sha512-NGnrKwXzSms2qUUih/ILZ5JBqNTSa1+ZmP6flaIp6KmSElgE9qdndzS3cqjrDovwFdmwsGsLdeFgB6suw+1e9g==}
     engines: {node: '>= 0.4'}
 
+  inversify-react@1.1.1:
+    resolution: {integrity: sha512-uYkR5PqiGqb78wPgQ9d49mLL3BgmgT7UCQ60hsnLbrYYh9Zktwk2Qi3qWvHyDLZ+ZsyzlTEzaEOD6cMCNzc1Yg==}
+    peerDependencies:
+      inversify: ^5.0.5 || ^6.0.1
+      react: ^16.3.0 || ^17.0.0 || ^18.0.0
+
   inversify@6.0.1:
     resolution: {integrity: sha512-B3ex30927698TJENHR++8FfEaJGqoWOgI6ZY5Ht/nLUsFCwHn6akbwtnUAPCgUepAnTpe2qHxhDNjoKLyz6rgQ==}
 
@@ -2233,6 +2254,11 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  lucide-react@0.446.0:
+    resolution: {integrity: sha512-BU7gy8MfBMqvEdDPH79VhOXSEgyG8TSPOKWaExWGCQVqnGH7wGgDngPbofu+KdtVjPQBWbEmnfMTq90CTiiDRg==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
 
   magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
@@ -3093,6 +3119,10 @@ packages:
 
   util@0.12.5:
     resolution: {integrity: sha512-kZf/K6hEIrWHI6XqOFUiiMa+79wE/D8Q+NCNAWclkyg3b4d2k7s0QGepNjiABc+aR3N1PAyHL7p6UcLY6LmrnA==}
+
+  uuid@10.0.0:
+    resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
+    hasBin: true
 
   validator@13.12.0:
     resolution: {integrity: sha512-c1Q0mCiPlgdTVVVIJIrBuxNicYE+t/7oKeI9MWLj3fh/uq2Pxh/3eeWbVZ4OcGW1TUf53At0njHw5SMdA3tmMg==}
@@ -4519,6 +4549,8 @@ snapshots:
 
   '@types/unist@3.0.3': {}
 
+  '@types/uuid@10.0.0': {}
+
   '@types/validator@13.12.2': {}
 
   '@ungap/structured-clone@1.2.0': {}
@@ -5325,6 +5357,11 @@ snapshots:
       hasown: 2.0.2
       side-channel: 1.0.6
 
+  inversify-react@1.1.1(inversify@6.0.2)(react@18.3.1):
+    dependencies:
+      inversify: 6.0.2
+      react: 18.3.1
+
   inversify@6.0.1: {}
 
   inversify@6.0.2: {}
@@ -5551,6 +5588,10 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  lucide-react@0.446.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   magic-string@0.25.9:
     dependencies:
@@ -6682,6 +6723,8 @@ snapshots:
       is-generator-function: 1.0.10
       is-typed-array: 1.1.13
       which-typed-array: 1.1.15
+
+  uuid@10.0.0: {}
 
   validator@13.12.0: {}
 
