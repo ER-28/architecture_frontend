@@ -17,7 +17,6 @@ export class ToastViewModel {
 	}
 
 	addToast(toast: BaseToastModel): ToastModel {
-		console.log("test");
 		return this.toastService.add(toast);
 	}
 
