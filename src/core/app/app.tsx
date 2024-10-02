@@ -6,6 +6,7 @@ import {
 	RouterProvider,
 	createBrowserRouter,
 } from "react-router-dom";
+import Loading from "../../Loading.tsx";
 import Types from "../../apps/toast/types.ts";
 import type { ToastViewModel } from "../../apps/toast/viewmodels/ToastViewModel.ts";
 import ToastManager from "../../apps/toast/views/ToastManager.tsx";
@@ -42,7 +43,7 @@ function App({ mainRouter, authRouter }: AppProps) {
 	}, [mainRouter, authRouter]);
 
 	if (!router) {
-		return null;
+		return <Loading />;
 	}
 
 	return (
