@@ -1,4 +1,4 @@
-import type { PortalConfiguration } from "../models/PortalConfiguration.ts";
+import type { PortalConfigurationModel } from "../models/PortalConfigurationModel.ts";
 
 export interface IPortalConfigurationService {
 	/**
@@ -25,5 +25,5 @@ export interface IPortalConfigurationService {
 	 * Gets the current portal configuration without fetching from the server.
 	 * @returns The current PortalConfiguration object or null if not loaded.
 	 */
-	getCurrentConfiguration(): PortalConfiguration | null;
+	getCurrentConfiguration(): PortalConfigurationModel | null;
 }

@@ -50,4 +50,6 @@ export const PortalConfigurationSchema = z
 	})
 	.partial();
 
-export type PortalConfiguration = z.infer<typeof PortalConfigurationSchema>;
+export type PortalConfigurationModel = z.infer<
+	typeof PortalConfigurationSchema
+>;

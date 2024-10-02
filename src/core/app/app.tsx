@@ -7,7 +7,9 @@ import {
 	createBrowserRouter,
 } from "react-router-dom";
 import Loading from "../../Loading.tsx";
-import Types from "../../apps/toast/types.ts";
+import THEME_TYPES from "../../apps/theme/types.ts";
+import type { DarkModeViewModel } from "../../apps/theme/viewmodels/DarkModeViewModel.ts";
+import TOAST_TYPES from "../../apps/toast/types.ts";
 import type { ToastViewModel } from "../../apps/toast/viewmodels/ToastViewModel.ts";
 import ToastManager from "../../apps/toast/views/ToastManager.tsx";
 import type { Router } from "../routing/bootstrapping.ts";
@@ -21,7 +23,12 @@ function App({ mainRouter, authRouter }: AppProps) {
 	const [router, setRouter] = useState<ReturnType<
 		typeof createBrowserRouter
 	> | null>(null);
-	const toastViewModel = useInjection<ToastViewModel>(Types.ToastViewModel);
+	const toastViewModel = useInjection<ToastViewModel>(
+		TOAST_TYPES.ToastViewModel,
+	);
+	const darkModeViewModel = useInjection<DarkModeViewModel>(
+		THEME_TYPES.DarkModeViewModel,
+	);
 
 	useEffect(() => {
 		const hasToken = document.cookie
@@ -47,7 +54,7 @@ function App({ mainRouter, authRouter }: AppProps) {
 	}
 
 	return (
-		<div>
+		<div className={darkModeViewModel.isDarkMode ? "dark" : "light"}>
 			<ToastManager viewModel={toastViewModel} />
 			<RouterProvider router={router} />
 		</div>

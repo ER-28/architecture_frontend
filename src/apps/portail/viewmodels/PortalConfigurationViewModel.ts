@@ -1,12 +1,12 @@
 import { inject, injectable } from "inversify";
 import { makeAutoObservable, runInAction } from "mobx";
-import type { PortalConfiguration } from "../models/PortalConfiguration.ts";
+import type { PortalConfigurationModel } from "../models/PortalConfigurationModel.ts";
 import type { PortalConfigurationService } from "../services/PortalConfigurationService.ts";
 import TYPES from "../types";
 
 @injectable()
 export class PortalConfigurationViewModel {
-	private configuration: PortalConfiguration | null = null;
+	private configuration: PortalConfigurationModel | null = null;
 	private isLoading = false;
 	private error: string | null = null;
 

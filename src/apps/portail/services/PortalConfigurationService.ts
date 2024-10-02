@@ -2,19 +2,19 @@ import type { AxiosResponse } from "axios";
 import { injectable } from "inversify";
 import apiWrapper from "../../../core/request/apiWrapper.ts";
 import {
-	type PortalConfiguration,
+	type PortalConfigurationModel,
 	PortalConfigurationSchema,
-} from "../models/PortalConfiguration.ts";
+} from "../models/PortalConfigurationModel.ts";
 import type { IPortalConfigurationService } from "./IPortalConfigurationService.ts";
 
 @injectable()
 export class PortalConfigurationService implements IPortalConfigurationService {
 	private static readonly API_ENDPOINT = "/api/v2/customer_portal_settings";
 
-	async getPortalConfiguration(): Promise<PortalConfiguration> {
+	async getPortalConfiguration(): Promise<PortalConfigurationModel> {
 		const response = await apiWrapper.fetchQuery(
 			["portalConfiguration"],
-			apiWrapper.apiGet<AxiosResponse<PortalConfiguration>>(
+			apiWrapper.apiGet<AxiosResponse<PortalConfigurationModel>>(
 				PortalConfigurationService.API_ENDPOINT,
 			),
 		);
@@ -22,7 +22,7 @@ export class PortalConfigurationService implements IPortalConfigurationService {
 		return PortalConfigurationSchema.parse(response.data);
 	}
 
-	getCurrentConfiguration(): PortalConfiguration | null {
+	getCurrentConfiguration(): PortalConfigurationModel | null {
 		return null;
 	}
 
