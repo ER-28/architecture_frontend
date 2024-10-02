@@ -1,5 +1,5 @@
 import type React from "react";
-import type { ReactNode } from "react";
+import { type ReactNode, useMemo } from "react";
 import backgroundSvg from "../img/background.svg?raw";
 
 interface GradientBackgroundProps {
@@ -13,41 +13,28 @@ const GradientBackground: React.FC<GradientBackgroundProps> = ({
 	endColor,
 	children,
 }) => {
-	const replacedSvg = backgroundSvg
-		.replace(/#C22D2A/g, startColor)
-		.replace(/#F5D50E/g, endColor);
+	const backgroundImageUrl = useMemo(() => {
+		const replacedSvg = backgroundSvg
+			.replace(/#C22D2A/g, startColor)
+			.replace(/#F5D50E/g, endColor);
+
+		const encodedSvg = encodeURIComponent(replacedSvg);
+		return `data:image/svg+xml,${encodedSvg}`;
+	}, [startColor, endColor]);
 
 	return (
-		<div
-			style={{
-				position: "relative",
-				width: "100vw",
-				height: "100vh",
-				overflow: "hidden",
-			}}
-		>
+		<div className="relative w-screen h-screen overflow-hidden">
 			<div
-				dangerouslySetInnerHTML={{ __html: replacedSvg }}
+				className="absolute inset-0 w-full h-full"
 				style={{
-					position: "absolute",
-					top: 0,
-					left: 0,
-					width: "100%",
-					height: "100%",
 					zIndex: -1,
+					backgroundImage: `url("${backgroundImageUrl}")`,
+					backgroundSize: "cover",
+					backgroundPosition: "center",
+					backgroundRepeat: "no-repeat",
 				}}
 			/>
-			<div
-				style={{
-					position: "relative",
-					zIndex: 1,
-					width: "100%",
-					height: "100%",
-					display: "flex",
-					justifyContent: "center",
-					alignItems: "center",
-				}}
-			>
+			<div className="relative z-10 w-full h-full flex justify-center items-center">
 				{children}
 			</div>
 		</div>
