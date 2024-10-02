@@ -1,7 +1,7 @@
 import { useInjection } from "inversify-react";
 import type React from "react";
-import PORTAL_TYPES from "../../portail/types.ts";
-import type { PortalConfigurationViewModel } from "../../portail/viewmodels/PortalConfigurationViewModel.ts";
+import PORTAL_TYPES from "../../portal/types.ts";
+import type { PortalConfigurationViewModel } from "../../portal/viewmodels/PortalConfigurationViewModel.ts";
 import TYPES from "../types";
 import type { LoginViewModel } from "../viewmodels/LoginViewModel.ts";
 import LoginView from "../views/LoginView.tsx";

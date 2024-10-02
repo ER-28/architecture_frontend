@@ -4,7 +4,7 @@ import type React from "react";
 import { useState } from "react";
 import Loading from "../../../Loading.tsx";
 import GradientBackground from "../../../assets/components/GradientBackground";
-import type { PortalConfigurationViewModel } from "../../portail/viewmodels/PortalConfigurationViewModel.ts";
+import type { PortalConfigurationViewModel } from "../../portal/viewmodels/PortalConfigurationViewModel.ts";
 import type { LoginViewModel } from "../viewmodels/LoginViewModel";
 
 interface LoginViewProps {
