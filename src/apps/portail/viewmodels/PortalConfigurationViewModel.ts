@@ -15,6 +15,8 @@ export class PortalConfigurationViewModel {
 		private configService: PortalConfigurationService,
 	) {
 		makeAutoObservable(this);
+
+		this.fetchPortalConfiguration();
 	}
 
 	get portalConfiguration() {
