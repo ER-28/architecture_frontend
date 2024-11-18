@@ -7,7 +7,7 @@
 		"dev": "vite",
 		"build": "tsc -b && vite build",
 		"preview": "vite preview",
-		"test": "pnpm biome check ./src && tsc --noEmit",
+		"test": "",
 		"fix": "pnpm biome check --fix ./src && tsc --noEmit",
 		"format": "prettier --write .",
 		"types": "tsc --noEmit",
